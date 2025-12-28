@@ -270,66 +270,47 @@ footer {
     100% { transform: scale(1); }
 }
 
-/* GRID DE CATEGORIAS */
+/* Grid de Categorias */
 .categorias-grid {
-    display: grid;
-    /* Aqui está o segredo: 2 colunas no celular */
-    grid-template-columns: repeat(2, 1fr); 
-    gap: 10px; /* Espaço menor entre eles */
-    margin-top: 20px;
-    padding: 0 10px; /* Um respiro nas laterais da tela */
-}
-
-/* O CARTÃO EM SI */
-.card-categoria {
-    background: #fff;
-    border-radius: 12px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    overflow: hidden;
-    text-decoration: none;
-    color: #333;
-    transition: transform 0.2s;
     display: flex;
-    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    padding: 0 20px;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
 }
 
-.card-categoria:active {
-    transform: scale(0.98);
+.card-categoria {
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    width: 300px;
+    text-decoration: none;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+    text-align: center;
+    border: 1px solid #eee;
 }
 
-/* IMAGEM DO CARD (O que deixava gigante) */
+.card-categoria:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
 .card-categoria img {
     width: 100%;
-    height: 110px; /* Força a imagem a ser baixinha no celular */
-    object-fit: cover; /* Garante que a imagem não fique esticada */
+    height: 200px;
+    object-fit: cover;
 }
 
-/* TÍTULO DO CARD */
 .card-categoria h3 {
-    font-size: 0.9rem; /* Fonte menor (aprox 14px) */
-    margin: 8px 0;
-    font-weight: 700;
-    text-align: center;
+    color: #d32f2f;
+    padding: 15px;
+    margin: 0;
+    font-size: 1.2rem;
+    text-transform: uppercase;
 }
 
-/* --- AJUSTES PARA PC (TELAS MAIORES) --- */
-@media (min-width: 768px) {
-    .categorias-grid {
-        grid-template-columns: repeat(3, 1fr); /* 3 por linha no PC */
-        gap: 20px;
-        max-width: 1000px;
-        margin: 40px auto;
-    }
-
-    .card-categoria img {
-        height: 200px; /* Deixa a imagem crescer no PC */
-    }
-
-    .card-categoria h3 {
-        font-size: 1.2rem;
-        margin: 15px 0;
-    }
-}
 /* ========================================= */
 /* BOTÃO VOLTAR (MODO FOCADO - NOVO)         */
 /* ========================================= */
