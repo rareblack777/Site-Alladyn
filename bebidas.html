@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Alladyn - Bebidas</title>
+</head>
+<body>
+
+<header>
+  <a href="index.html">
+    <img src="assets/Alladyn Sanduiches.png" alt="Logo Alladyn">
+  </a>
+  <h1>Para refrescar!</h1>
+  <div class="cart-icon" onclick="toggleCart()">
+    🛒<span class="cart-count" id="cartCount">0</span>
+  </div>
+</header>
+
+<div class="cart-panel" id="cartPanel">
+  <h3>Seu Pedido</h3>
+  <ul id="cartList"></ul>
+  <button onclick="enviarPedido()">Enviar pelo WhatsApp</button>
+</div>
+
+<div class="container">
+  <div class="botoes">
+    <a href="lanches.html">Lanches Individuais</a>
+    <a href="combos.html">Combos</a>
+    <a href="bebidas.html" class="ativo">Bebidas</a>
+  </div>
+
+  <div class="fundo-dinamico bg-bebidas">
+      <div class="cardapio" id="bebidas">
+        <h2>Bebidas</h2>
+
+        <div class="lanche">
+          <img src="assets/Mega-Combo.jpg" alt="Coca-Cola" onerror="this.src='assets/Alladyn Sanduiches.png'"> 
+          <div class="lanche-info">
+            <h3>Coca Cola</h3>
+            <p>Garrafa 2 Litros</p> 
+            <p class="preco" id="preco_Coca-Cola">R$ 14,00</p> 
+            <div class="quantidade">
+              <button onclick="atualizarCarrinho('Coca-Cola', -1)">➖</button>
+              <span id="quant_Coca-Cola">0</span>
+              <button onclick="atualizarCarrinho('Coca-Cola', 1)">➕</button>
+            </div>
+          </div>
+        </div>
+      </div>
+  </div>
+</div>
+
+<footer>&copy; 2025 Alladyn Sanduíches</footer>
+<script src="script.js"></script>
+</body>
+</html>

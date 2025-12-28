@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <title>Alladyn - Combos</title>
+</head>
+<body>
+
+<header>
+  <a href="index.html"><img src="assets/Alladyn Sanduiches.png" alt="Logo Alladyn"></a>
+  <h1>Combos da Galera</h1>
+  <div class="cart-icon" onclick="toggleCart()">🛒<span class="cart-count" id="cartCount">0</span></div>
+</header>
+
+<div class="cart-panel" id="cartPanel">
+  <h3>Seu Pedido</h3>
+  <ul id="cartList"></ul>
+  <button onclick="enviarPedido()">Enviar pelo WhatsApp</button>
+</div>
+
+<div class="container">
+  <div class="botoes">
+    <a href="lanches.html">Lanches Individuais</a>
+    <a href="combos.html" class="ativo">Combos</a>
+    <a href="bebidas.html">Bebidas</a>
+  </div>
+
+  <div class="banner-tematico">
+    <h2>🔥 Fome de Gigante?</h2>
+    <p>Economize pedindo o combo completo!</p>
+  </div>
+
+  <div class="fundo-dinamico bg-combos">
+    <div class="cardapio" id="combos">
+      <h2>Combos</h2>
+
+      <div class="lanche">
+        <img src="assets/Mega-Combo.jpg" alt="Mega-Combo" onerror="this.src='assets/Alladyn Sanduiches.png'">
+        <div class="lanche-info">
+          <h3>Mega Combo</h3>
+          <p>3 Sanduiches + refrigerante 1L + porção de batata frita<br>(opções de hamburgueres: Alcatra, Frango ou Filé Misto)</p>
+          <p class="preco" id="preco_Mega-Combo">R$ 83,00</p>
+          <div class="quantidade"><button onclick="atualizarCarrinho('Mega-Combo', -1)">➖</button><span id="quant_Mega-Combo">0</span><button onclick="atualizarCarrinho('Mega-Combo', 1)">➕</button></div>
+        </div>
+      </div>
+
+      <div class="lanche">
+        <img src="assets/Combo-Familia.jpg" alt="Combo-Familia" onerror="this.src='assets/Alladyn Sanduiches.png'">
+        <div class="lanche-info">
+          <h3>Combo Familia</h3>
+          <p>2 Sanduiches + refrigerante 1L + porção de batata frita<br>(Opções de Sanduiches: Alcatra, Frango ou Filé Misto)</p>
+          <p class="preco" id="preco_Combo-Familia">R$ 56,00</p>
+          <div class="quantidade"><button onclick="atualizarCarrinho('Combo-Familia', -1)">➖</button><span id="quant_Combo-Familia">0</span><button onclick="atualizarCarrinho('Combo-Familia', 1)">➕</button></div>
+        </div>
+      </div>
+
+      <div class="lanche">
+        <img src="assets/Combo-Big-Burguer.jpg" alt="Combo-Big-Burguer" onerror="this.src='assets/Alladyn Sanduiches.png'">
+        <div class="lanche-info">
+          <h3>Combo Big Burguer</h3>
+          <p>1 Big Burguer + 1 Copo de suco de Laranja + porção de batata frita</p>
+          <p class="preco" id="preco_Combo-Big-Burguer">R$ 37,00</p>
+          <div class="quantidade"><button onclick="atualizarCarrinho('Combo-Big-Burguer', -1)">➖</button><span id="quant_Combo-Big-Burguer">0</span><button onclick="atualizarCarrinho('Combo-Big-Burguer', 1)">➕</button></div>
+        </div>
+      </div>
+
+      <div class="lanche">
+        <img src="assets/Combo-Passaporte.jpg" alt="Combo-Passaporte" onerror="this.src='assets/Alladyn Sanduiches.png'">
+        <div class="lanche-info">
+          <h3>Combo Passaporte</h3>
+          <p>1 Passaporte + 1 Copo de suco de Laranja + porção de batata frita,<br>(Opções de passaporte: Carne ou Misto)</p>
+          <p class="preco" id="preco_Combo-Passaporte">R$ 30,00</p>
+          <div class="quantidade"><button onclick="atualizarCarrinho('Combo-Passaporte', -1)">➖</button><span id="quant_Combo-Passaporte">0</span><button onclick="atualizarCarrinho('Combo-Passaporte', 1)">➕</button></div>
+        </div>
+      </div>
+
+      <div class="lanche">
+        <img src="assets/Combo-Minuano.jpg" alt="Combo-Minuano" onerror="this.src='assets/Alladyn Sanduiches.png'">
+        <div class="lanche-info">
+          <h3>Combo Minuano</h3>
+          <p>1 Minuano + 1 Copo de suco de Laranja + porção de batata frita</p>
+          <p class="preco" id="preco_Combo-Minuano">R$ 31,00</p>
+          <div class="quantidade"><button onclick="atualizarCarrinho('Combo-Minuano', -1)">➖</button><span id="quant_Combo-Minuano">0</span><button onclick="atualizarCarrinho('Combo-Minuano', 1)">➕</button></div>
+        </div>
+      </div>
+
+      <div class="lanche">
+        <img src="assets/Combo-Minuano-Duo.jpg" alt="Combo-Minuano-Duo" onerror="this.src='assets/Alladyn Sanduiches.png'">
+        <div class="lanche-info">
+          <h3>Combo Minuano Duo</h3>
+          <p>2 Minuanos + refrigerante 1L + porção de batata frita</p>
+          <p class="preco" id="preco_Combo-Minuano-Duo">R$ 48,00</p>
+          <div class="quantidade"><button onclick="atualizarCarrinho('Combo-Minuano-Duo', -1)">➖</button><span id="quant_Combo-Minuano-Duo">0</span><button onclick="atualizarCarrinho('Combo-Minuano-Duo', 1)">➕</button></div>
+        </div>
+      </div>
+
+      <div class="lanche">
+        <img src="assets/Combo-Familia-Kids.jpg" alt="Combo-Familia-Kids" onerror="this.src='assets/Alladyn Sanduiches.png'">
+        <div class="lanche-info">
+          <h3>Combo Familia Kids</h3>
+          <p>2 X-burguers + 1 X-filé + refrigerante 1L + porção de batata frita</p>
+          <p class="preco" id="preco_Combo-Familia-Kids">R$ 53,00</p>
+          <div class="quantidade"><button onclick="atualizarCarrinho('Combo-Familia-Kids', -1)">➖</button><span id="quant_Combo-Familia-Kids">0</span><button onclick="atualizarCarrinho('Combo-Familia-Kids', 1)">➕</button></div>
+        </div>
+      </div>
+
+      <div class="lanche">
+        <img src="assets/Combo-Alladyn.jpg" alt="Combo-Alladyn" onerror="this.src='assets/Alladyn Sanduiches.png'">
+        <div class="lanche-info">
+          <h3>Combo Alladyn</h3>
+          <p>1 Big Alladyn + 1 Copo de suco de Laranja + porção de batata frita</p>
+          <p class="preco" id="preco_Combo-Alladyn">R$ 34,00</p>
+          <div class="quantidade"><button onclick="atualizarCarrinho('Combo-Alladyn', -1)">➖</button><span id="quant_Combo-Alladyn">0</span><button onclick="atualizarCarrinho('Combo-Alladyn', 1)">➕</button></div>
+        </div>
+      </div>
+
+      <div class="lanche">
+        <img src="assets/Combo-Mix.jpg" alt="Combo-Mix" onerror="this.src='assets/Alladyn Sanduiches.png'">
+        <div class="lanche-info">
+          <h3>Combo Mix</h3>
+          <p>1 Sanduiche + 1 Copo de suco de Laranja + porção de batata frita<br>(Opções de Sanduiche: Alcatra, Frango, Filé Misto ou Cheddar)</p>
+          <p class="preco" id="preco_Combo-Mix">R$ 39,00</p>
+          <div class="quantidade"><button onclick="atualizarCarrinho('Combo-Mix', -1)">➖</button><span id="quant_Combo-Mix">0</span><button onclick="atualizarCarrinho('Combo-Mix', 1)">➕</button></div>
+        </div>
+      </div>
+
+      <div class="lanche">
+        <img src="assets/Combo-x-burguer.jpg" alt="Combo-x-burguer" onerror="this.src='assets/Alladyn Sanduiches.png'">
+        <div class="lanche-info">
+          <h3>Combo X-burguer</h3>
+          <p>1 X-burguer + 1 Copo de suco de Laranja + porção de batata frita</p>
+          <p class="preco" id="preco_Combo-x-burguer">R$ 26,00</p>
+          <div class="quantidade"><button onclick="atualizarCarrinho('Combo-x-burguer', -1)">➖</button><span id="quant_Combo-x-burguer">0</span><button onclick="atualizarCarrinho('Combo-x-burguer', 1)">➕</button></div>
+        </div>
+      </div>
+
+      <div class="lanche">
+        <img src="assets/Combo-Alladyn-Kids.jpg" alt="Combo-Alladyn-Kids" onerror="this.src='assets/Alladyn Sanduiches.png'">
+        <div class="lanche-info">
+          <h3>Combo Alladyn Kids</h3>
+          <p>1 Coxinha + 1 Copo de suco de Laranja + porção de batata frita</p>
+          <p class="preco" id="preco_Combo-Alladyn-Kids">R$ 22,00</p>
+          <div class="quantidade"><button onclick="atualizarCarrinho('Combo-Alladyn-Kids', -1)">➖</button><span id="quant_Combo-Alladyn-Kids">0</span><button onclick="atualizarCarrinho('Combo-Alladyn-Kids', 1)">➕</button></div>
+        </div>
+      </div>
+
+      <div class="lanche">
+        <img src="assets/Carne-de-Sol-com-Fritas.jpg" alt="Carne-de-Sol-com-Fritas" onerror="this.src='assets/Alladyn Sanduiches.png'">
+        <div class="lanche-info">
+          <h3>Carne de Sol com Fritas</h3>
+          <p>(Opções de Carnes: Alcatra, Frango ou Filé Misto)</p>
+          <p class="preco" id="preco_Carne-de-Sol-com-Fritas">R$ 40,00</p>
+          <div class="quantidade"><button onclick="atualizarCarrinho('Carne-de-Sol-com-Fritas', -1)">➖</button><span id="quant_Carne-de-Sol-com-Fritas">0</span><button onclick="atualizarCarrinho('Carne-de-Sol-com-Fritas', 1)">➕</button></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<footer>&copy; 2025 Alladyn Sanduíches</footer>
+<script src="script.js"></script>
+</body>
+</html>
