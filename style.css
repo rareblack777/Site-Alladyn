@@ -230,17 +230,14 @@ footer {
 
 /* CAPA DO INDEX (HERO) - Versão PNG */
 .hero-banner {
-    /* Apontando para o arquivo .png correto */
     background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('assets/hero-banner.png');
-    
-    /* Configurações para a imagem ficar perfeita */
-    background-size: cover;       /* Cobre toda a área */
-    background-position: center;  /* Centraliza o foco */
+    background-size: cover;       
+    background-position: center;  
     background-repeat: no-repeat;
     
     color: white;
     text-align: center;
-    padding: 100px 20px;          /* Altura imponente */
+    padding: 100px 20px;          
     margin-bottom: 40px;
     border-bottom-left-radius: 20px;
     border-bottom-right-radius: 20px;
@@ -249,7 +246,7 @@ footer {
 .hero-content h2 {
     font-size: 2.2rem;
     margin-bottom: 10px;
-    color: #ffca28; /* Amarelo Alladyn */
+    color: #ffca28; 
     text-shadow: 2px 2px 4px rgba(0,0,0,0.7);
 }
 
@@ -273,7 +270,7 @@ footer {
     100% { transform: scale(1); }
 }
 
-/* Grid de Categorias (Substitui os botões simples) */
+/* Grid de Categorias */
 .categorias-grid {
     display: flex;
     justify-content: center;
@@ -312,4 +309,99 @@ footer {
     margin: 0;
     font-size: 1.2rem;
     text-transform: uppercase;
+}
+
+/* ========================================= */
+/* BOTÃO VOLTAR (MODO FOCADO - NOVO)         */
+/* ========================================= */
+
+.btn-voltar-foco {
+    display: inline-block; 
+    text-decoration: none;
+    
+    /* CORES CHAMATIVAS */
+    background-color: #ffca28; /* Amarelo da marca */
+    color: #000; /* Texto preto para contraste máximo */
+    
+    /* TAMANHO E FORMA */
+    padding: 12px 25px; /* Bem maior que o anterior */
+    border-radius: 30px; /* Estilo pílula */
+    border: none;
+    
+    /* FONTE */
+    font-size: 16px;
+    font-weight: 800; /* Negrito extra */
+    
+    /* POSIÇÃO E DESTAQUE */
+    margin-bottom: 25px; 
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); 
+    transition: all 0.3s ease;
+}
+
+.btn-voltar-foco:hover {
+    background-color: #d32f2f; /* Vermelho */
+    color: white;
+    transform: translateY(-3px) scale(1.02); /* Pulo */
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+}
+
+/* GRID DE CATEGORIAS */
+.categorias-grid {
+    display: grid;
+    /* Aqui está o segredo: 2 colunas no celular */
+    grid-template-columns: repeat(2, 1fr); 
+    gap: 10px; /* Espaço menor entre eles */
+    margin-top: 20px;
+    padding: 0 10px; /* Um respiro nas laterais da tela */
+}
+
+/* O CARTÃO EM SI */
+.card-categoria {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    overflow: hidden;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.2s;
+    display: flex;
+    flex-direction: column;
+}
+
+.card-categoria:active {
+    transform: scale(0.98);
+}
+
+/* IMAGEM DO CARD (O que deixava gigante) */
+.card-categoria img {
+    width: 100%;
+    height: 110px; /* Força a imagem a ser baixinha no celular */
+    object-fit: cover; /* Garante que a imagem não fique esticada */
+}
+
+/* TÍTULO DO CARD */
+.card-categoria h3 {
+    font-size: 0.9rem; /* Fonte menor (aprox 14px) */
+    margin: 8px 0;
+    font-weight: 700;
+    text-align: center;
+}
+
+/* --- AJUSTES PARA PC (TELAS MAIORES) --- */
+@media (min-width: 768px) {
+    .categorias-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 por linha no PC */
+        gap: 20px;
+        max-width: 1000px;
+        margin: 40px auto;
+    }
+
+    .card-categoria img {
+        height: 200px; /* Deixa a imagem crescer no PC */
+    }
+
+    .card-categoria h3 {
+        font-size: 1.2rem;
+        margin: 15px 0;
+    }
 }
