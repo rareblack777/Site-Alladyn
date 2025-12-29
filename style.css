@@ -270,45 +270,61 @@ footer {
     100% { transform: scale(1); }
 }
 
-/* Grid de Categorias */
+/* CONTAINER CENTRALIZADO */
 .categorias-grid {
     display: flex;
-    justify-content: center;
-    gap: 20px;
-    padding: 0 20px;
-    flex-wrap: wrap;
-    margin-bottom: 40px;
+    flex-direction: column;
+    align-items: center; /* Centraliza os cards no meio da tela */
+    gap: 20px;           /* Espaço entre um e outro */
+    margin-top: 20px;
+    padding-bottom: 20px;
 }
 
+/* O CARD (AGORA MENOR) */
 .card-categoria {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    width: 300px;
+    /* AQUI ESTÁ A MÁGICA: */
+    width: 80%;          /* O card ocupa só 80% da tela (sobra espaço nos lados) */
+    max-width: 320px;    /* Trava para não ficar gigante nunca */
+    background: #fff;
+    border-radius: 15px; /* Bordas mais arredondadas ficam melhores em cards menores */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     text-decoration: none;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-    text-align: center;
-    border: 1px solid #eee;
+    color: #333;
+    overflow: hidden;    /* Garante que a imagem respeite a borda redonda */
 }
 
-.card-categoria:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-}
-
+/* A IMAGEM (PROPORCIONAL) */
 .card-categoria img {
     width: 100%;
-    height: 200px;
-    object-fit: cover;
+    height: 160px;       /* Altura média. Nem muito alta, nem uma tira fina */
+    object-fit: cover;   /* Preenche o espaço sem esticar/deformar a foto */
 }
 
+/* TÍTULO */
 .card-categoria h3 {
-    color: #d32f2f;
-    padding: 15px;
-    margin: 0;
-    font-size: 1.2rem;
-    text-transform: uppercase;
+    font-size: 1rem;     /* Fonte de tamanho médio */
+    margin: 12px 0;
+    text-align: center;
+    font-weight: 700;
+}
+
+/* --- MANTÉM BONITO NO PC --- */
+@media (min-width: 768px) {
+    .categorias-grid {
+        flex-direction: row; /* Coloca lado a lado no PC */
+        justify-content: center;
+        align-items: flex-start;
+        max-width: 1000px;
+        margin: 40px auto;
+    }
+    
+    .card-categoria {
+        width: 300px; /* Tamanho fixo no PC */
+    }
+    
+    .card-categoria img {
+        height: 200px;
+    }
 }
 
 /* ========================================= */
