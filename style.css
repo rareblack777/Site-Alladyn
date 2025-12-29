@@ -105,35 +105,42 @@ footer {
   position: relative; z-index: 100;
 }
 
-/* --- AJUSTES PARA CELULAR (MOBILE) --- */
+/* --- CORREÇÃO DE DESIGN MOBILE --- */
 @media (max-width: 600px) {
   
-  /* 1. Esconde o título repetido dentro do cardápio (Lanches Individuais) */
+  /* 1. Remove o título "Lanches Individuais" repetido dentro da lista */
   .cardapio h2 {
     display: none;
   }
 
-  /* 2. Ajusta o card do lanche (Layout Vertical) */
+  /* 2. Arruma o Card do Lanche para ficar elegante */
   .lanche { 
     flex-direction: column; 
-    align-items: center; /* Centraliza tudo */
-    text-align: center;  /* Centraliza o texto */
+    align-items: center; 
+    text-align: center;
+    padding: 15px; /* Mais respiro interno */
   }
 
-  /* 3. A Mágica da Imagem (70% de largura) */
+  /* 3. DIMINUI A IMAGEM (O Pulo do Gato) */
   .lanche img { 
-    width: 70% !important;      /* Aqui define o tamanho que você pediu */
-    max-width: 250px;           /* Trava para não ficar gigante em tablets pequenos */
-    height: auto !important;    /* Altura automática para não distorcer a foto */
-    margin: 0 auto 15px auto;   /* Centraliza a imagem e dá espaço embaixo */
-    display: block;
-    border-radius: 15px;        /* Bordas arredondadas para ficar bonito */
+    width: auto !important;     /* Largura automática */
+    height: 140px !important;   /* ALTURA FIXA: Ocupa pouco espaço vertical */
+    max-width: 80%;             /* Não deixa passar de 80% da tela */
+    object-fit: contain;        /* Mostra a imagem inteira sem cortar */
+    margin-bottom: 10px;
+    border-radius: 10px;
   }
 
-  /* Ajuste extra para os botões de quantidade ficarem centralizados */
+  /* 4. Centraliza os botões de quantidade */
   .quantidade {
     justify-content: center;
     margin-top: 10px;
+  }
+  
+  /* 5. Ajusta o tamanho da fonte do nome do lanche */
+  .lanche-info h3 {
+      font-size: 1.2rem;
+      margin-bottom: 5px;
   }
 }
 
