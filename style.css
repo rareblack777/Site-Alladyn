@@ -105,10 +105,36 @@ footer {
   position: relative; z-index: 100;
 }
 
+/* --- AJUSTES PARA CELULAR (MOBILE) --- */
 @media (max-width: 600px) {
-  .lanche { flex-direction: column; align-items: flex-start; }
-  .lanche img { width: 100%; height: auto; margin: 0 0 10px 0; }
-  .botoes a { display: block; width: 100%; margin: 10px auto; }
+  
+  /* 1. Esconde o título repetido dentro do cardápio (Lanches Individuais) */
+  .cardapio h2 {
+    display: none;
+  }
+
+  /* 2. Ajusta o card do lanche (Layout Vertical) */
+  .lanche { 
+    flex-direction: column; 
+    align-items: center; /* Centraliza tudo */
+    text-align: center;  /* Centraliza o texto */
+  }
+
+  /* 3. A Mágica da Imagem (70% de largura) */
+  .lanche img { 
+    width: 70% !important;      /* Aqui define o tamanho que você pediu */
+    max-width: 250px;           /* Trava para não ficar gigante em tablets pequenos */
+    height: auto !important;    /* Altura automática para não distorcer a foto */
+    margin: 0 auto 15px auto;   /* Centraliza a imagem e dá espaço embaixo */
+    display: block;
+    border-radius: 15px;        /* Bordas arredondadas para ficar bonito */
+  }
+
+  /* Ajuste extra para os botões de quantidade ficarem centralizados */
+  .quantidade {
+    justify-content: center;
+    margin-top: 10px;
+  }
 }
 
 /* --- BANNER TEMÁTICO (PÁGINAS INTERNAS) --- */
