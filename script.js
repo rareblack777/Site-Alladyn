@@ -421,3 +421,45 @@ function toggleAccordion(headerElement) {
     content.classList.add('show');
   }
 }
+
+/* --- CONTROLE DE EXIBIÇÃO (MODO FOCADO + TECLADO) --- */
+document.addEventListener("DOMContentLoaded", () => {
+    // 1. Verifica se existe o código "?origem=card" na URL
+    const params = new URLSearchParams(window.location.search);
+    
+    if (params.get('origem') === 'card') {
+        // A. ESCONDE a barra de botões amarelos
+        const barraBotoes = document.querySelector('.botoes');
+        if (barraBotoes) {
+            barraBotoes.style.display = 'none';
+        }
+
+        // B. CRIA o botão "Voltar" visual
+        const container = document.querySelector('.container');
+        const titulo = document.querySelector('.cardapio h2') || document.querySelector('.cardapio');
+        
+        const btnVoltar = document.createElement('a');
+        btnVoltar.href = 'index.html';
+        btnVoltar.innerHTML = '🔙 VOLTAR AO INÍCIO'; // Texto com Emoji
+        btnVoltar.className = 'btn-voltar-foco';
+        
+        if (titulo && titulo.parentNode) {
+            titulo.parentNode.insertBefore(btnVoltar, titulo);
+        } else if (container) {
+            container.prepend(btnVoltar);
+        }
+
+        // C. DETECTA AS TECLAS (ESC e BACKSPACE)
+        document.addEventListener('keydown', (event) => {
+            // Segurança: Se o usuário estiver digitando em um input (ex: endereço), o Backspace não deve voltar a página
+            if (event.target.tagName === 'INPUT' || event.target.tagName === 'TEXTAREA') {
+                return; 
+            }
+
+            if (event.key === 'Escape' || event.key === 'Backspace') {
+                event.preventDefault(); // Evita comportamento padrão do navegador
+                window.location.href = 'index.html'; // Volta para a capa
+            }
+        });
+    }
+});
